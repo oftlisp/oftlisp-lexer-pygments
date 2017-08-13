@@ -1,7 +1,7 @@
 from pygments.lexer import RegexLexer, words
 from pygments.token import *
 
-operator_syms = ["+", "-", "*", "/", "%", "="]
+operator_syms = ["+", "-", "*", "/", "%", "=", "\\", "@"]
 operator_words = ["len", "mod"]
 builtins = [
     "assert", "assert-eq", "concat", "cond", "cons", "eq", "first", "fold",
