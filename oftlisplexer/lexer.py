@@ -1,12 +1,20 @@
 from pygments.lexer import RegexLexer, words
 from pygments.token import *
 
-operator_syms = ["+", "-", "*", "/", "%", "=", "\\", "@"]
-operator_words = ["len", "mod"]
+operator_syms = [
+    "+", "-", "*", "/", "%", "=", "<", "<=", ">", ">=", "\\", "@", "<-"
+]
+operator_words = ["lambda", "len", "mod"]
 builtins = [
     "assert", "assert-eq", "concat", "cond", "cons", "eq", "first", "fold",
     "head", "if", "last", "list", "map", "progn", "second", "show", "strcat",
     "tail", "third"
+]
+decls = [
+    "def", "defmacro", "defn", "defvar"
+]
+namespace = [
+    "import", "import-macros", "module"
 ]
 
 symbol_start_chars = "a-zA-Z+\\./\\$\\?\\*#:=<>_-"
@@ -31,8 +39,8 @@ class OftlispLexer(RegexLexer):
             (words(operator_syms, suffix="[^{}]".format(symbol_chars)), Operator),
             (words(operator_words, suffix="[^{}]".format(symbol_chars)), Operator.Word),
             (words(builtins, suffix="[^{}]".format(symbol_chars)), Name.Builtin),
-            (words(["def", "defn", "defmacro", "lambda"], suffix="\\b"), Keyword.Declaration),
-            (words(["import", "import-macros", "module"], suffix="\\b"), Keyword.Namespace),
+            (words(decls, suffix="\\b"), Keyword.Declaration),
+            (words(namespace, suffix="\\b"), Keyword.Namespace),
             ("[{}][{}]*".format(symbol_start_chars, symbol_chars), Name)
         ]
     }
