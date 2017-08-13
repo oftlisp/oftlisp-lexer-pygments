@@ -15,6 +15,7 @@ symbol_chars = "0-9" + symbol_start_chars
 class OftlispLexer(RegexLexer):
     """A Pygments lexer for OftLisp."""
     name = "OftLisp"
+    aliases = ["oftlisp"]
     filename = ["*.oft"]
 
     tokens = {
