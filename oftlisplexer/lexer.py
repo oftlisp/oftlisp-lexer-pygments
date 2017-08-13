@@ -7,8 +7,8 @@ operator_syms = [
 operator_words = ["lambda", "len", "mod"]
 builtins = [
     "assert", "assert-eq", "concat", "cond", "cons", "eq", "first", "fold",
-    "head", "if", "last", "list", "map", "progn", "second", "show", "strcat",
-    "tail", "third"
+    "head", "if", "last", "list", "map", "nil", "progn", "second", "show",
+    "strcat", "tail", "third"
 ]
 decls = [
     "def", "defmacro", "defn", "defvar"
